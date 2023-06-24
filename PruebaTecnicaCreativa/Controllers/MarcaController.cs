@@ -16,7 +16,7 @@ namespace PruebaTecnicaCreativa.Controllers
         {
             _db = db;
         }
-        private IActionResult Index()
+        public IActionResult Index()
         {
             var marcas = _db.Marca.FromSqlRaw("EXEC spMarca_GetAll").ToList();
 
@@ -30,7 +30,7 @@ namespace PruebaTecnicaCreativa.Controllers
             }).ToList();
             return View(marcaModels);
         }
-        private IActionResult Create(MarcaModel marca)
+        public IActionResult Create(MarcaModel marca)
         {
             var nombreMarcaParam = new SqlParameter("@NombreMarca", marca.NombreMarca);
             var descripcionParam = new SqlParameter("@Descripcion", marca.Descripcion);
@@ -55,7 +55,7 @@ namespace PruebaTecnicaCreativa.Controllers
 
             return RedirectToAction("Index");
         }
-        private IActionResult Edit(MarcaModel marca) 
+        public IActionResult Edit(MarcaModel marca) 
         {
             var idMarcaParameter = new SqlParameter("@IdMarca", marca.IdMarca);
             var nombreMarcaParameter = new SqlParameter("@NombreMarca", marca.NombreMarca);
@@ -75,7 +75,7 @@ namespace PruebaTecnicaCreativa.Controllers
             return RedirectToAction("Index");
 
         }
-        private IActionResult Delete(int IdMarca) 
+        public IActionResult Delete(int IdMarca) 
         {
             var idMarcaParameter = new SqlParameter("@IdMarca", IdMarca);
 

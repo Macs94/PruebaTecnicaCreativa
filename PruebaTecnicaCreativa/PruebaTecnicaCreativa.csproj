@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Scripts\" />
     <Folder Include="Views\EquipoViews\" />
     <Folder Include="Views\PrestamoViews\" />
   </ItemGroup>
